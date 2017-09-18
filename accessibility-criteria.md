@@ -4,7 +4,7 @@
 
 This describes the necessary behaviours that an character counter needs to meet to be usable by assistive technologies.
 
-They are useful if you are evaluating `char-counter`, or a different character counter solution.
+They are useful if you are evaluating `accessible-character-count`, or a different character counter solution.
 
 ## User story
 
