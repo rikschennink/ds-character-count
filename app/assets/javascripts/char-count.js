@@ -87,6 +87,7 @@
           // countHighlight.style.height = CharCount.prototype.getHeight(countElement) + 'px'
           // countHighlight.style.height = countElement.getBoundingClientRect().height + 'px'
           countHighlight.style.height = countElement.offsetHeight + 'px'
+          countHighlight.style.width = countElement.offsetWidth + 'px'
 
           // We have to disable resize on highlighted components to avoid the async scroll and boundaries
           countElement.style.resize = 'none'
@@ -124,6 +125,7 @@
           // CharCount.prototype.updateMessage.call(countElement)
           CharCount.prototype.updateCountMessage(countElementExtended)
           countElement.setAttribute('maxlength', '')
+          countElement.setAttribute('data-maxlength', maxLength)
         } else {
           if (!countMessage) window.console.warn('Make sure you set an id for each of your field(s)')
           if (!maxLength) window.console.warn('Make sure you set the ' + countAttribute + ' for each of your field(s)')
@@ -233,9 +235,15 @@
       // Update styles
       if (remainingNumber < 0) {
         countElement.classList.add('form-control-error')
+        if (options && options.validation) {
+          countElement.parentNode.classList.add('form-control-wrapper-error')
+        }
         countMessage.classList.add('error-message')
       } else {
         countElement.classList.remove('form-control-error')
+        if (options && options.validation) {
+          countElement.parentNode.classList.remove('form-control-wrapper-error')
+        }
         countMessage.classList.remove('error-message')
       }
     }
@@ -243,12 +251,16 @@
     // Update message
     var charVerb = 'remaining'
     var charNoun = 'character'
+    var displayNumber = remainingNumber
     if (options && options.wordCount) {
       charNoun = 'word'
     }
     charNoun = charNoun + ((remainingNumber === -1 || remainingNumber === 1) ? '' : 's')
-    // charVerb = (remaining < 0)?'too many':'remaining'
-    countMessage.innerHTML = remainingNumber + ' ' + charNoun + ' ' + charVerb
+
+    charVerb = (remainingNumber < 0) ? 'too many' : 'remaining'
+    displayNumber = Math.abs(remainingNumber) // postive count of numbers
+
+    countMessage.innerHTML = 'You have ' + displayNumber + ' ' + charNoun + ' ' + charVerb
 
     // Update Highlight
     if (countHighlight) {
@@ -265,6 +277,9 @@
   // Check if value changed on focus
   CharCount.prototype.handleFocus = function (event) {
     this.valueChecker = setInterval(CharCount.prototype.checkIfValueChanged, 100, this)
+    // The following line sets the height properly when the component is hidden at load time
+    this.countHighlight.style.height = this.countElement.getBoundingClientRect().height + 'px' // TODO: bind the resize handler
+    this.countHighlight.style.width = this.countElement.getBoundingClientRect().width + 'px' // TODO: bind the resize handler
   }
 
   // Cancel valaue checking on blur
@@ -281,6 +296,7 @@
   // Update element's height after window resize
   CharCount.prototype.handleResize = function (event) {
     this.countHighlight.style.height = this.countElement.getBoundingClientRect().height + 'px'
+    this.countHighlight.style.width = this.countElement.getBoundingClientRect().width + 'px'
   }
 
   // Initialize component
