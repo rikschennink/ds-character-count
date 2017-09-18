@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        Components prototypes
+      </h1>{{releaseVersion | log }}
+
+      <h2 class="heading-large">Character count</h2>
+      <p>Display a character / word count limit that counts down as users type in to a field. If the user goes over the limit, it counts up.</p>
+
+      <div class="form-group">
+        <a class="button button-start" href="components/char-count" role="button">View demo</a>
+      </div>
+
+      <h3 class="heading-medium">Variations</h3>
+      <ul class="list list-bullet">
+        <li><a href="components/word-count">Word count demo</a></li>
+        <li><a href="components/char-count-threshold">Character count with threshold demo</a></li>
+        <li><a href="components/char-count-highlight">Character count with highlight demo</a></li>
+        <li><a href="components/char-count-highlight-default-border">Character count with highlight demo (default border)</a></li>
+      </ul>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
