@@ -1,10 +1,10 @@
-.backdrop-highlights.form-control-error{
+.govuk-c-charcount__highlight.form-control-error{
   border-width: 2px !important; // force this one as the validation overwrites it
 }
 textarea{
   overflow: auto;
 }
-.form-control{
+.govuk-c-charcount{
   width: 100%;
   border-width: 2px;
   position: relative;
@@ -12,16 +12,16 @@ textarea{
   z-index: 2;
   margin: 0; //implicit margin creates problems on safari
 }
-.js-count-message{
-  text-align: right;
+.govuk-c-charcount__message{
+  // text-align: right;
   margin-top: 0;
   padding: 6px 0 0;
 }
-.error-message-hidden{
+.govuk-c-charcount__message--disabled{
   visibility: hidden;
 }
 // Highlights
-.form-control-wrapper{
+.govuk-c-charcount__wrapper{
   position: relative;
   width: 100%;
   padding: 0;
@@ -35,10 +35,10 @@ textarea{
     margin-left: -20px;
   }
 }
-.form-control-wrapper-error{
+.govuk-c-charcount__wrapper-error{
   border-color: $error-colour;
 }
-.backdrop-highlights-input,.backdrop-highlights{
+.govuk-c-charcount__highlight-input, .govuk-c-charcount__highlight{
   z-index: 1;
   position: absolute;
   width: 100%;
@@ -55,6 +55,6 @@ textarea{
     opacity: .2;
   }
 }
-.backdrop-highlights-input{
+.govuk-c-charcount__highlight-input{
   white-space: nowrap;
 }

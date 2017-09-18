@@ -78,9 +78,9 @@
 
         // Highlights
         if (options && options.highlight) {
-          var wrapper = CharCount.prototype.wrapElement(countElement, 'form-control-wrapper')
+          var wrapper = CharCount.prototype.wrapElement(countElement, 'govuk-c-charcount__wrapper')
           var elementId = countElement.getAttribute('id')
-          var countHighlightClass = (countElement.type === 'text') ? 'backdrop-highlights-input' : 'backdrop-highlights'
+          var countHighlightClass = (countElement.type === 'text') ? 'govuk-c-charcount__highlight-input' : 'govuk-c-charcount__highlight'
           wrapper.insertAdjacentHTML('afterbegin', '<div id="' + elementId + '-hl" class="form-control ' + countHighlightClass + '" aria-hidden="true" role="presentation"></div>')
 
           var countHighlight = document.getElementById(elementId + '-hl')
@@ -126,6 +126,8 @@
           CharCount.prototype.updateCountMessage(countElementExtended)
           countElement.setAttribute('maxlength', '')
           countElement.setAttribute('data-maxlength', maxLength)
+
+          countElement.classList.add('govuk-c-charcount')
         } else {
           if (!countMessage) window.console.warn('Make sure you set an id for each of your field(s)')
           if (!maxLength) window.console.warn('Make sure you set the ' + countAttribute + ' for each of your field(s)')
@@ -165,7 +167,7 @@
     var countMessage = document.getElementById(elementId + '-info')
     // If there is no existing info count message we add one right after the field
     if (elementId && !countMessage) {
-      countElement.insertAdjacentHTML('afterend', '<span id="' + elementId + '-info" class="form-hint js-count-message" aria-live="polite"></span>')
+      countElement.insertAdjacentHTML('afterend', '<span id="' + elementId + '-info" class="form-hint govuk-c-charcount__message" aria-live="polite"></span>')
       countElement.setAttribute('aria-describedby', elementId + '-info')
       countMessage = document.getElementById(elementId + '-info')
     }
@@ -226,9 +228,9 @@
     }
     var thresholdValue = maxLength * threshold / 100
     if (thresholdValue > currentLength) {
-      countMessage.classList.add('error-message-hidden')
+      countMessage.classList.add('govuk-c-charcount__message--disabled')
     } else {
-      countMessage.classList.remove('error-message-hidden')
+      countMessage.classList.remove('govuk-c-charcount__message--disabled')
     }
 
     if (!options.defaultBorder) {
@@ -236,13 +238,13 @@
       if (remainingNumber < 0) {
         countElement.classList.add('form-control-error')
         if (options && options.validation) {
-          countElement.parentNode.classList.add('form-control-wrapper-error')
+          countElement.parentNode.classList.add('govuk-c-charcount__wrapper-error')
         }
         countMessage.classList.add('error-message')
       } else {
         countElement.classList.remove('form-control-error')
         if (options && options.validation) {
-          countElement.parentNode.classList.remove('form-control-wrapper-error')
+          countElement.parentNode.classList.remove('govuk-c-charcount__wrapper-error')
         }
         countMessage.classList.remove('error-message')
       }
