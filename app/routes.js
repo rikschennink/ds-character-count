@@ -27,8 +27,8 @@ router.get('/components/char-count-highlight', function (req, res) {
 })
 
 // Router character count highlight page
-router.get('/components/char-count-highlight-default-border', function (req, res) {
-  res.render('components/char_count_highlight_default_border')
+router.get('/components/char-count-highlight-validation', function (req, res) {
+  res.render('components/char_count_highlight_validation')
 })
 
 // add your routes here

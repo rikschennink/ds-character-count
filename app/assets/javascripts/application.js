@@ -35,9 +35,9 @@ $(document).ready(function () {
     highlight: true
   })
   charCount.init({
-    selector: 'js-char-count-highlight-default-border',
+    selector: 'js-char-count-highlight-validation',
     highlight: true,
-    defaultBorder: true
+    validation: true
   })
 
 })

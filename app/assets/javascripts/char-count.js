@@ -1,7 +1,7 @@
 ;(function (global) {
   'use strict'
 
-  var $ = global.jQuery
+  // var $ = global.jQuery
   var GOVUK = global.GOVUK || {}
 
   function CharCount () { }
