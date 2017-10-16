@@ -2,9 +2,9 @@
 
 ## What's this?
 
-This describes the necessary behaviours that an character counter needs to meet to be usable by assistive technologies.
+This describes the necessary behaviours that a character count needs to meet to be usable by assistive technologies.
 
-They are useful if you are evaluating `accessible-character-count`, or a different character counter solution.
+They are useful if you are evaluating `ds-character-count`, or a different character count solution.
 
 ## User story
 
@@ -12,7 +12,7 @@ They are useful if you are evaluating `accessible-character-count`, or a differe
 
 ## Acceptance criteria
 
-The field with autocomplete must:
+A field with character count must:
 
 1. Be focusable with a keyboard
 1. Indicate when it has keyboard focus
