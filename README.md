@@ -33,7 +33,7 @@ Dependencies:
 * [alphagov/govuk-elements-sass](https://github.com/alphagov/govuk_elements)
 
 ## Installation
-* For using the component in your service download [char-count.js](/alphagov/ds-character-count/blob/master/app/assets/javascripts/char-count.js), place it in your project's assets folder then follow the [usage instructions](#usage) below.
+* For using the component in your service download [char-count.js](/alphagov/ds-character-count/blob/master/app/assets/javascripts/char-count.js) and [character-count.scss](/alphagov/ds-character-count/blob/master/app/assets/sass/patterns/_character-count.scss), place them in your project's assets folder then follow the [usage instructions](#usage) below.
 * For testing the component prototype on your local machine follow the [govuk_prototype_kit installation instructions](https://govuk-prototype-kit.herokuapp.com/docs/install/developer-install-instructions)
 
 ## Usage
