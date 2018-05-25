@@ -38,12 +38,12 @@ Dependencies:
 
 ## Usage
 1. Set the ``maxlength`` attribute and add a *javascript handler* class or id (e.g. ``.js-char-count``). Note that the textarea **must** have an ``id`` attribute set to a unique value within the page.
-```
+```html
 <textarea id="description-field" class="form-control js-char-count" rows="5" maxlength="500"></textarea>
 ```
 
 2. Enhance the textarea by initialising a `charCount` instance on the specified handler (e.g. ``.js-char-count``)
-```
+```js
 var charCount = new GOVUK.CharCount()
 charCount.init({
   selector: '.js-char-count'
@@ -54,14 +54,14 @@ charCount.init({
 
 ### Word count
 1. Since there is no *maxwords* attribute in HTML5, use ``data-maxwords`` attribute to set the maximum number of words and add a *javascript handler* class (e.g. ``.js-word-count``). Note that the textarea **must** have an ``id`` attribute set to a unique value within the page.
-```
+```html
 <input id="name-field" class="form-control js-word-count" type="text" data-maxwords="10">
 ```
-```
+```html
 <textarea id="description-field" class="form-control js-word-count" rows="5" data-maxwords="30"></textarea>
 ```
 2. Enhance the textarea by initialising a `charCount` instance on the specified handler (e.g. ``.js-word-count``) to display word count. For initialising the *Word Count* you must add ``wordCount: true`` to the options of the ``init`` function.
-```
+```js
 var charCount = new GOVUK.CharCount()
 charCount.init({
   selector: '.js-word-count',
@@ -71,7 +71,7 @@ charCount.init({
 
 ### Character count with threshold
 You can display the count message when the users are at 50% or more setting a percentage value as ``threshold``.
-```
+```js
 var charCount = new GOVUK.CharCount()
 charCount.init({
   selector: '.js-char-count',
@@ -83,7 +83,7 @@ charCount.init({
 ### Character count with highlight
 You can also visually highlight the characters which have taken users over the limit by setting the ``highlight`` option to `true`. This can make it easier for some users to see how far over they are and edit their content to fit. However, for some lower confidence, it can cause confusion.
 
-```
+```js
 var charCount = new GOVUK.CharCount()
 charCount.init({
   selector: '.js-char-count',
